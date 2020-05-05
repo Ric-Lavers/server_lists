@@ -1,11 +1,7 @@
 require("dotenv").config();
 import mongoose from "mongoose";
 
-import {
-  demoSchema,
-  wordSchema,
-  groupSchema
-} from "./mongoSchemas";
+import { demoSchema, wordSchema, groupSchema } from "./mongoSchemas";
 
 var MONGO_URI = process.env.MONGO_URI;
 
@@ -14,9 +10,6 @@ if (process.env.APP_ENV === "development") {
 } else {
   MONGO_URI = process.env.PROD_MONGO_URI;
 }
-console.log({
-  MONGO_URI
-});
 
 //Mongo connection
 mongoose.Promise = global.Promise;
@@ -29,8 +22,4 @@ const Demo = mongoose.model("demo", demoSchema);
 const Word = mongoose.model("word", wordSchema);
 const Group = mongoose.model("group", groupSchema);
 
-export {
-  Demo,
-  Word,
-  Group
-};
+export { Demo, Word, Group };
